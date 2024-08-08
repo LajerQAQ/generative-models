@@ -2,7 +2,7 @@
 
 ![sample1](assets/000.jpg)
 
-## News
+## News 
 
 
 **July 24, 2024**
