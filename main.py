@@ -99,7 +99,7 @@ def get_parser(**parser_kwargs):
         "--no-test",
         type=str2bool,
         const=True,
-        default=False,
+        default=True,
         nargs="?",
         help="disable test",
     )
@@ -910,14 +910,14 @@ if __name__ == "__main__":
             import os
             import socket
 
-            import requests
+            #import requests
 
             device = os.environ.get("CUDA_VISIBLE_DEVICES", "?")
             hostname = socket.gethostname()
             ts = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-            resp = requests.get("http://169.254.169.254/latest/meta-data/instance-id")
+            resp = None #requests.get("http://169.254.169.254/latest/meta-data/instance-id")
             print(
-                f"ERROR at {ts} on {hostname}/{resp.text} (CUDA_VISIBLE_DEVICES={device}): {type(err).__name__}: {err}",
+                f"ERROR at {ts} on {hostname}/{resp} (CUDA_VISIBLE_DEVICES={device}): {type(err).__name__}: {err}",
                 flush=True,
             )
         raise err
